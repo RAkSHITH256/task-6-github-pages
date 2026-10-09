@@ -1,0 +1,434 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Rakshith C | DevOps, Cloud & DevSecOps Portfolio</title>
+<meta name="description" content="Portfolio of Rakshith C, a Computer Science Engineering student in Bengaluru focused on DevOps, Kubernetes, CI/CD, GitOps, observability and software supply-chain security.">
+<meta name="theme-color" content="#070b16">
+<meta name="author" content="Rakshith C">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Rakshith C | DevOps, Cloud & DevSecOps">
+<meta property="og:description" content="Building secure, observable and automated cloud infrastructure.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%23070b16'/%3E%3Cpath d='M9 11l6 5-6 5M17 21h7' stroke='%2322d3ee' stroke-width='2.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#070b16; --bg2:#0c1222; --card:rgba(18,26,48,.7); --line:rgba(120,150,255,.16);
+  --text:#e6ecff; --muted:#9aa8c7; --blue:#3b82f6; --cyan:#22d3ee; --violet:#8b5cf6;
+  --grad:linear-gradient(120deg,var(--cyan),var(--blue) 55%,var(--violet));
+  --head:"Space Grotesk","Inter",system-ui,sans-serif; --body:"Inter",system-ui,sans-serif; --mono:"JetBrains Mono",ui-monospace,Menlo,monospace;
+}
+*{box-sizing:border-box;margin:0}
+html{scroll-behavior:smooth;scroll-padding-top:76px}
+body{background:var(--bg);color:var(--text);font:16px/1.65 var(--body);-webkit-font-smoothing:antialiased;
+  background-image:radial-gradient(700px 400px at 85% -5%,rgba(59,130,246,.18),transparent),radial-gradient(600px 400px at 0% 30%,rgba(139,92,246,.1),transparent);background-repeat:no-repeat}
+a{color:inherit;text-decoration:none}
+:focus-visible{outline:2px solid var(--cyan);outline-offset:3px;border-radius:6px}
+.wrap{width:min(1120px,92%);margin-inline:auto}
+section{padding:92px 0}
+h1,h2,h3{font-family:var(--head);line-height:1.15;letter-spacing:-.01em}
+h2{font-size:clamp(1.7rem,3.2vw,2.3rem);margin-bottom:12px}
+.sub{color:var(--muted);max-width:60ch;margin-bottom:40px}
+.skip{position:absolute;left:-999px;top:8px;background:var(--cyan);color:#001;padding:8px 14px;border-radius:8px;z-index:100}
+.skip:focus{left:8px}
+
+/* Nav */
+header{position:sticky;top:0;z-index:50;background:rgba(7,11,22,.8);backdrop-filter:blur(14px);border-bottom:1px solid var(--line)}
+nav{display:flex;align-items:center;justify-content:space-between;height:64px}
+.logo{font:700 1.1rem var(--head);letter-spacing:.04em}
+.logo span{background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent}
+.links{display:flex;gap:4px;list-style:none;padding:0}
+.links a{display:block;padding:8px 12px;border-radius:8px;color:var(--muted);font-size:.93rem;transition:.2s}
+.links a:hover,.links a.active{color:var(--text);background:rgba(59,130,246,.14)}
+.burger{display:none;background:none;border:1px solid var(--line);color:var(--text);border-radius:8px;width:42px;height:42px;cursor:pointer}
+.burger svg{width:22px;height:22px;stroke:currentColor}
+
+/* Buttons */
+.btn{display:inline-flex;align-items:center;gap:8px;padding:11px 20px;border-radius:10px;font-weight:600;font-size:.95rem;border:1px solid var(--line);background:rgba(255,255,255,.03);cursor:pointer;color:var(--text);font-family:inherit;transition:.2s}
+.btn:hover{border-color:var(--cyan);transform:translateY(-2px);box-shadow:0 8px 24px -10px var(--cyan)}
+.btn.primary{background:var(--grad);border-color:transparent;color:#04101f}
+.btn.primary:hover{box-shadow:0 10px 28px -10px var(--blue)}
+.btn svg{width:18px;height:18px;fill:currentColor}
+
+/* Hero */
+.hero{padding:84px 0 70px}
+.hero .wrap{display:grid;grid-template-columns:1.05fr .95fr;gap:48px;align-items:center}
+.badge{display:inline-flex;align-items:center;gap:8px;border:1px solid var(--line);background:var(--card);padding:6px 14px;border-radius:99px;font-size:.85rem;color:var(--muted);margin-bottom:22px}
+.dot{width:8px;height:8px;border-radius:50%;background:#34d399;box-shadow:0 0 0 0 rgba(52,211,153,.6);animation:pulse 2.4s infinite}
+@keyframes pulse{70%{box-shadow:0 0 0 8px rgba(52,211,153,0)}100%{box-shadow:0 0 0 0 rgba(52,211,153,0)}}
+.hero .name{font:600 1rem var(--mono);color:var(--cyan);margin-bottom:10px}
+.hero h1{font-size:clamp(2.1rem,4.6vw,3.3rem);margin-bottom:20px}
+.hero h1 em{font-style:normal;background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent}
+.hero p.lead{color:var(--muted);max-width:56ch;margin-bottom:30px}
+.cta{display:flex;flex-wrap:wrap;gap:12px}
+.term{border:1px solid var(--line);border-radius:14px;background:#0a0f1d;box-shadow:0 30px 70px -30px rgba(59,130,246,.55),0 0 0 1px rgba(34,211,238,.06);overflow:hidden;font:400 .84rem/1.75 var(--mono)}
+.term-bar{display:flex;align-items:center;gap:7px;padding:11px 14px;background:rgba(255,255,255,.04);border-bottom:1px solid var(--line);color:var(--muted);font-size:.78rem}
+.term-bar i{width:11px;height:11px;border-radius:50%;background:#ff5f57}.term-bar i:nth-child(2){background:#febc2e}.term-bar i:nth-child(3){background:#28c840}
+.term-bar span{margin-left:8px}
+.term pre{padding:18px;white-space:pre-wrap;font:inherit;overflow-x:auto}
+.p{color:var(--cyan)}.ok{color:#34d399}.v{color:#a78bfa}.m{color:var(--muted)}
+.caret{display:inline-block;width:8px;height:15px;background:var(--cyan);vertical-align:-2px;animation:blink 1s steps(1) infinite}
+@keyframes blink{50%{opacity:0}}
+
+/* Cards */
+.card{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:24px;backdrop-filter:blur(8px);transition:.25s}
+.card:hover{border-color:rgba(34,211,238,.5);transform:translateY(-4px);box-shadow:0 18px 40px -22px var(--blue)}
+.about{display:grid;grid-template-columns:1.4fr 1fr;gap:28px}
+.about p+p{margin-top:14px}
+.about p{color:#c4cee8}
+.facts{list-style:none;padding:0;display:grid;gap:14px}
+.facts li{display:flex;flex-direction:column;font-size:.95rem}
+.facts small{color:var(--muted);font-size:.8rem}
+.facts b{font-weight:600}
+.grid{display:grid;gap:18px}
+.skills{grid-template-columns:repeat(auto-fill,minmax(260px,1fr))}
+.skills h3{font-size:1.02rem;margin-bottom:14px;display:flex;align-items:center;gap:10px}
+.skills h3 svg{width:20px;height:20px;stroke:var(--cyan);fill:none;stroke-width:1.8;flex:none}
+.tags{display:flex;flex-wrap:wrap;gap:7px;padding:0;list-style:none}
+.tags li{font:500 .78rem var(--mono);padding:4px 10px;border-radius:7px;background:rgba(59,130,246,.12);border:1px solid rgba(59,130,246,.25);color:#bcd2ff}
+
+/* Projects */
+.projects{grid-template-columns:repeat(auto-fit,minmax(320px,1fr))}
+.proj{display:flex;flex-direction:column;position:relative}
+.proj::before{content:"";position:absolute;inset:0 0 auto 0;height:3px;border-radius:16px 16px 0 0;background:var(--grad);opacity:.8}
+.proj .yr{font:.8rem var(--mono);color:var(--cyan);margin-bottom:8px}
+.proj h3{font-size:1.25rem;margin-bottom:14px}
+.proj ul.feat{padding-left:18px;color:#c4cee8;font-size:.93rem;margin-bottom:18px;display:grid;gap:8px}
+.proj ul.feat li::marker{color:var(--violet)}
+.proj .tags{margin-top:auto;margin-bottom:20px}
+.proj .btn{align-self:flex-start}
+
+/* Experience */
+.tl{position:relative;display:grid;gap:20px;padding-left:28px}
+.tl::before{content:"";position:absolute;left:5px;top:8px;bottom:8px;width:2px;background:linear-gradient(var(--cyan),var(--violet))}
+.tl .card{position:relative}
+.tl .card::before{content:"";position:absolute;left:-29px;top:30px;width:12px;height:12px;border-radius:50%;background:var(--bg);border:2px solid var(--cyan)}
+.tl h3{font-size:1.1rem}
+.meta{display:flex;flex-wrap:wrap;gap:10px;align-items:center;margin:6px 0 10px;color:var(--muted);font-size:.9rem}
+.pill{font-size:.75rem;padding:3px 10px;border-radius:99px;border:1px solid rgba(139,92,246,.5);background:rgba(139,92,246,.14);color:#d4c5ff}
+.note{margin-top:20px;color:var(--muted);font-size:.88rem}
+
+/* Certs */
+.certs{grid-template-columns:repeat(auto-fill,minmax(280px,1fr))}
+.certs .card{padding:20px;display:flex;gap:14px;align-items:flex-start}
+.certs svg{width:24px;height:24px;flex:none;stroke:var(--violet);fill:none;stroke-width:1.8;margin-top:2px}
+.certs h3{font-size:.98rem;margin-bottom:2px}
+.certs p{color:var(--muted);font-size:.86rem}
+
+/* Contact */
+.contact{display:grid;grid-template-columns:1fr 1.1fr;gap:28px}
+.clinks{display:grid;gap:12px;margin-top:6px}
+.clinks a{display:flex;align-items:center;gap:12px;padding:14px 16px;border:1px solid var(--line);border-radius:12px;background:var(--card);transition:.2s;word-break:break-all}
+.clinks a:hover{border-color:var(--cyan)}
+.clinks svg{width:20px;height:20px;fill:var(--cyan);flex:none}
+form{display:grid;gap:14px}
+label{font-size:.88rem;font-weight:500;display:grid;gap:6px}
+input,textarea{font:inherit;color:var(--text);background:#0a0f1d;border:1px solid var(--line);border-radius:10px;padding:11px 14px;width:100%}
+input:focus,textarea:focus{outline:2px solid var(--cyan);outline-offset:1px;border-color:transparent}
+textarea{min-height:130px;resize:vertical}
+.hint{color:var(--muted);font-size:.82rem}
+
+footer{border-top:1px solid var(--line);padding:36px 0;color:var(--muted);font-size:.9rem}
+footer .wrap{display:flex;flex-wrap:wrap;gap:18px;justify-content:space-between;align-items:center}
+footer .soc{display:flex;gap:16px}
+footer a:hover{color:var(--cyan)}
+
+/* Reveal: one gentle fade for sections */
+.reveal{opacity:0;transform:translateY(16px);transition:opacity .6s,transform .6s}
+.reveal.in{opacity:1;transform:none}
+
+@media (max-width:860px){
+  .hero .wrap,.about,.contact{grid-template-columns:1fr}
+  .burger{display:grid;place-items:center}
+  .links{position:absolute;top:64px;left:0;right:0;flex-direction:column;background:var(--bg2);border-bottom:1px solid var(--line);padding:10px 4%;display:none}
+  .links.open{display:flex}
+  section{padding:68px 0}
+}
+@media (max-width:420px){.projects{grid-template-columns:1fr}}
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  *,*::before,*::after{animation:none!important;transition:none!important}
+  .reveal{opacity:1;transform:none}
+}
+</style>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+
+<header>
+  <nav class="wrap" aria-label="Primary">
+    <a class="logo" href="#home" aria-label="Rakshith C, home"><span>RAKSHITH C</span></a>
+    <button class="burger" aria-label="Toggle menu" aria-expanded="false" aria-controls="menu">
+      <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+    </button>
+    <ul class="links" id="menu">
+      <li><a href="#home">Home</a></li><li><a href="#about">About</a></li><li><a href="#skills">Skills</a></li>
+      <li><a href="#projects">Projects</a></li><li><a href="#experience">Experience</a></li>
+      <li><a href="#certifications">Certifications</a></li><li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+</header>
+
+<main id="main">
+<section class="hero" id="home">
+  <div class="wrap">
+    <div>
+      <div class="badge"><span class="dot"></span>Open to learning &amp; collaboration</div>
+      <p class="name">RAKSHITH C</p>
+      <h1>Building <em>Secure, Observable &amp; Automated</em> Cloud Infrastructure.</h1>
+      <p class="lead">I'm a Computer Science Engineering student focused on DevOps, cloud infrastructure, Kubernetes, CI/CD automation, and software supply-chain security. I enjoy building practical systems that make deployments more reliable, observable, and secure.</p>
+      <div class="cta">
+        <a class="btn primary" href="#projects">View my projects</a>
+        <a class="btn" href="#contact">Contact me</a>
+        <a class="btn" data-link="github" href="#" target="_blank" rel="noopener noreferrer"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 .5a11.5 11.5 0 0 0-3.64 22.41c.58.1.79-.25.79-.56v-2c-3.2.7-3.88-1.37-3.88-1.37-.52-1.33-1.28-1.69-1.28-1.69-1.05-.72.08-.7.08-.7 1.15.08 1.76 1.19 1.76 1.19 1.03 1.76 2.7 1.25 3.36.96.1-.75.4-1.25.73-1.54-2.55-.29-5.24-1.28-5.24-5.69 0-1.26.45-2.29 1.19-3.1-.12-.29-.52-1.47.11-3.07 0 0 .97-.31 3.18 1.18a11 11 0 0 1 5.79 0c2.2-1.49 3.17-1.18 3.17-1.18.63 1.6.23 2.78.12 3.07.74.81 1.18 1.84 1.18 3.1 0 4.42-2.69 5.39-5.25 5.68.41.36.78 1.06.78 2.14v3.17c0 .31.21.67.8.56A11.5 11.5 0 0 0 12 .5z"/></svg>GitHub</a>
+      </div>
+    </div>
+    <div class="term" role="img" aria-label="Decorative terminal showing a secure CI/CD pipeline running">
+      <div class="term-bar"><i></i><i></i><i></i><span>rakshith@fedora: ~/pipeline</span></div>
+<pre><span class="p">$</span> git push origin main
+<span class="m"># GitHub Actions</span>
+<span class="ok">✔</span> semgrep      <span class="m">static analysis</span>
+<span class="ok">✔</span> gitleaks     <span class="m">secret scan</span>
+<span class="ok">✔</span> pip-audit    <span class="m">dependencies</span>
+<span class="ok">✔</span> trivy        <span class="m">image scan</span>
+<span class="ok">✔</span> syft         <span class="m">SBOM</span>
+<span class="ok">✔</span> cosign       <span class="m">image signed</span>
+<span class="v">→</span> argo cd      <span class="m">syncing to cluster</span>
+<span class="p">$</span> <span class="caret"></span></pre>
+    </div>
+  </div>
+</section>
+
+<section id="about" class="reveal">
+  <div class="wrap">
+    <h2>About me</h2>
+    <p class="sub">A student who learns by building and running real systems.</p>
+    <div class="about">
+      <div class="card">
+        <p>I'm a Computer Science Engineering undergraduate at Dayananda Sagar College of Engineering, Bengaluru, working through hands-on projects in DevOps and cloud. I'm comfortable working daily in Linux and Git, and I'm drawn to automation that removes manual steps from delivery.</p>
+        <p>My projects cover Kubernetes, GitOps with Argo CD, observability with Prometheus, Grafana and Loki, and DevSecOps practices such as scanning, SBOMs, image signing and admission policies. Most recently I built a software supply-chain security pipeline end to end.</p>
+        <p>I keep learning through project work, cloud courses and industry events.</p>
+      </div>
+      <div class="card">
+        <ul class="facts">
+          <li><small>Education</small><b>B.E. Computer Science &amp; Engineering</b>Dayananda Sagar College of Engineering</li>
+          <li><small>CGPA</small><b>9.4 / 10</b></li>
+          <li><small>Expected graduation</small><b>May 2028</b></li>
+          <li><small>Location</small><b>Bengaluru, India</b></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="skills" class="reveal">
+  <div class="wrap">
+    <h2>Technical skills</h2>
+    <p class="sub">The tools and concepts I use in my projects.</p>
+    <div class="grid skills" id="skillGrid"></div>
+  </div>
+</section>
+
+<section id="projects" class="reveal">
+  <div class="wrap">
+    <h2>Featured projects</h2>
+    <p class="sub">Hands-on builds from my resume. Repository links are set in the CONFIG block at the bottom of this file.</p>
+    <div class="grid projects">
+      <article class="card proj">
+        <div class="yr">2026</div>
+        <h3>Secure Software Supply Chain Security Platform</h3>
+        <ul class="feat">
+          <li>GitHub Actions pipeline scanning source with Semgrep, secrets with Gitleaks, and Python dependencies with pip-audit before the image is built.</li>
+          <li>Trivy container scanning and Syft SBOM generation.</li>
+          <li>Images signed with Cosign, with SLSA build provenance attached, then published to Docker Hub.</li>
+          <li>Kyverno admission policies verify image signatures and block privileged containers, root execution, privilege escalation and writable root filesystems.</li>
+        </ul>
+        <ul class="tags"><li>Kubernetes</li><li>GitHub Actions</li><li>Semgrep</li><li>Gitleaks</li><li>pip-audit</li><li>Trivy</li><li>Syft</li><li>Cosign</li><li>SLSA</li><li>Kyverno</li><li>Docker Hub</li></ul>
+        <a class="btn" data-link="project1" href="#" target="_blank" rel="noopener noreferrer">View on GitHub</a>
+      </article>
+      <article class="card proj">
+        <div class="yr">2026</div>
+        <h3>Kubernetes GitOps &amp; Observability Platform</h3>
+        <ul class="feat">
+          <li>Self-hosted GitHub Actions runner builds and pushes a Docker image on every commit.</li>
+          <li>Argo CD watches the repository and applies the updated manifest, so no manual deployment step is needed.</li>
+          <li>Prometheus (with kube-state-metrics and Node Exporter) and Grafana deployed via Helm, with dashboards for pod health, node resources, replica count and network traffic.</li>
+          <li>Tested rollback by reverting a manifest in Git and confirming Argo CD restored the previous deployment.</li>
+        </ul>
+        <ul class="tags"><li>Kubernetes</li><li>Argo CD</li><li>Prometheus</li><li>Grafana</li><li>Helm</li><li>GitHub Actions</li><li>Self-hosted Runner</li><li>Docker</li><li>Minikube</li></ul>
+        <a class="btn" data-link="project2" href="#" target="_blank" rel="noopener noreferrer">View on GitHub</a>
+      </article>
+      <article class="card proj">
+        <div class="yr">2025</div>
+        <h3>Cloud-Native Monitoring &amp; Log Aggregation Lab</h3>
+        <ul class="feat">
+          <li>Prometheus, Grafana and Loki deployed as a stack on Kubernetes via Helm.</li>
+          <li>Metrics from Prometheus and pod logs from Loki, visible in a single Grafana workspace.</li>
+          <li>Dashboards with template variables and chained drop-downs, so any namespace or workload can be inspected without editing the dashboard.</li>
+          <li>Alert rules built on key PromQL queries.</li>
+        </ul>
+        <ul class="tags"><li>Kubernetes</li><li>Prometheus</li><li>Grafana</li><li>Loki</li><li>Helm</li><li>GitHub Actions</li><li>Docker</li><li>Ingress</li></ul>
+        <a class="btn" data-link="project3" href="#" target="_blank" rel="noopener noreferrer">View on GitHub</a>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section id="experience" class="reveal">
+  <div class="wrap">
+    <h2>Experience</h2>
+    <p class="sub">A project-based assessment and a campus role. Neither is formal employment.</p>
+    <div class="tl">
+      <div class="card">
+        <h3>DevOps &amp; Cloud Engineer: Zero Downtime CI/CD Pipeline Assessment</h3>
+        <div class="meta"><span>July 2026</span><span class="pill">Project-based assessment</span></div>
+        <p>Completed a 15-day, full-time-equivalent project-based assessment on designing CI/CD pipelines for zero-downtime deployments, and received a completion certificate.</p>
+      </div>
+      <div class="card">
+        <h3>Student Ambassador: Capgemini</h3>
+        <div class="meta"><span>Current</span><span class="pill">Campus role</span></div>
+        <p>Representing Capgemini as a Student Ambassador on campus.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="certifications" class="reveal">
+  <div class="wrap">
+    <h2>Certifications &amp; professional development</h2>
+    <p class="sub">Courses, simulations and events that support my hands-on work.</p>
+    <div class="grid certs" id="certGrid"></div>
+  </div>
+</section>
+
+<section id="contact" class="reveal">
+  <div class="wrap">
+    <h2>Get in touch</h2>
+    <p class="sub">Happy to talk about DevOps, cloud, or collaboration on projects.</p>
+    <div class="contact">
+      <div>
+        <div class="clinks">
+          <a href="mailto:rakshithshetty55@gmail.com"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 5h18a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V6a1 1 0 0 1 1-1zm9 7.2L4.5 7v.1L12 12.4 19.5 7.1V7L12 12.2z"/></svg>rakshithshetty55@gmail.com</a>
+          <a href="tel:+917411996708"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6.6 10.8a15 15 0 0 0 6.6 6.6l2.2-2.2a1 1 0 0 1 1-.25 11 11 0 0 0 3.6.6 1 1 0 0 1 1 1V20a1 1 0 0 1-1 1A17 17 0 0 1 3 4a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1c0 1.25.2 2.45.6 3.6a1 1 0 0 1-.25 1z"/></svg>+91 7411996708</a>
+          <a data-link="linkedin" href="#" target="_blank" rel="noopener noreferrer"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5zM3 9.5h4V21H3zM9.5 9.5h3.8v1.6h.05c.53-1 1.84-2 3.8-2 4 0 4.75 2.6 4.75 6V21h-4v-5.1c0-1.2 0-2.8-1.7-2.8s-2 1.3-2 2.7V21h-4z"/></svg>LinkedIn</a>
+          <a data-link="github" href="#" target="_blank" rel="noopener noreferrer"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 .5a11.5 11.5 0 0 0-3.64 22.41c.58.1.79-.25.79-.56v-2c-3.2.7-3.88-1.37-3.88-1.37-.52-1.33-1.28-1.69-1.28-1.69-1.05-.72.08-.7.08-.7 1.15.08 1.76 1.19 1.76 1.19 1.03 1.76 2.7 1.25 3.36.96.1-.75.4-1.25.73-1.54-2.55-.29-5.24-1.28-5.24-5.69 0-1.26.45-2.29 1.19-3.1-.12-.29-.52-1.47.11-3.07 0 0 .97-.31 3.18 1.18a11 11 0 0 1 5.79 0c2.2-1.49 3.17-1.18 3.17-1.18.63 1.6.23 2.78.12 3.07.74.81 1.18 1.84 1.18 3.1 0 4.42-2.69 5.39-5.25 5.68.41.36.78 1.06.78 2.14v3.17c0 .31.21.67.8.56A11.5 11.5 0 0 0 12 .5z"/></svg>GitHub</a>
+          <a data-link="docker" href="#" target="_blank" rel="noopener noreferrer"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 11h3V8H3zm4 0h3V8H7zm4 0h3V8h-3zm-4-4h3V4H7zm4 0h3V4h-3zm4 4h3V8h-3zM22 11.5c-.6-.4-1.9-.5-2.9-.3-.1-1-.7-1.8-1.4-2.4l-.5-.3-.3.5c-.4.6-.5 1.600-.4 2.200.1.4.3.9.6 1.200-.3.2-.9.4-1.700.4H2.200c-.3 1.600-.1 3.700 1.200 5.300 1.200 1.500 3 2.300 5.700 2.300 5.200 0 9.100-2.400 10.900-6.800.7 0 2.200 0 3-1.500l.2-.4z"/></svg>Docker Hub</a>
+        </div>
+      </div>
+      <!--
+        CONTACT FORM NOTE: This site has no backend, so the form does NOT send messages to a server.
+        On submit, JavaScript builds a mailto: link and opens the visitor's own email app with the
+        message pre-filled. If no email app opens, the visitor can use the email link on this page.
+      -->
+      <form class="card" id="contactForm" novalidate>
+        <label>Name<input name="name" autocomplete="name" required></label>
+        <label>Email<input name="email" type="email" autocomplete="email" required></label>
+        <label>Message<textarea name="message" required></textarea></label>
+        <button class="btn primary" type="submit">Open in my email app</button>
+        <p class="hint" id="formMsg" role="status">This form has no server. It opens your email app with the message ready to send.</p>
+      </form>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div><b style="color:var(--text)">Rakshith C</b><br>Building secure, observable and automated systems, one project at a time.<br>&copy; <span id="year"></span> Rakshith C</div>
+    <div class="soc">
+      <a href="mailto:rakshithshetty55@gmail.com">Email</a>
+      <a data-link="linkedin" href="#" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+      <a data-link="github" href="#" target="_blank" rel="noopener noreferrer">GitHub</a>
+      <a data-link="docker" href="#" target="_blank" rel="noopener noreferrer">Docker Hub</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+/* ==== CONFIG: paste your real URLs here. Empty strings keep a link inactive. ==== */
+const CONFIG = {
+  linkedin: "",   // e.g. your LinkedIn profile URL
+  github:   "",   // your GitHub profile URL
+  docker:   "",   // your Docker Hub profile URL
+  project1: "",   // Secure Software Supply Chain Security Platform repo
+  project2: "",   // Kubernetes GitOps & Observability Platform repo
+  project3: ""    // Cloud-Native Monitoring & Log Aggregation Lab repo
+};
+const EMAIL = "rakshithshetty55@gmail.com";
+
+/* Wire configurable links; inactive ones explain themselves instead of leading nowhere. */
+document.querySelectorAll("[data-link]").forEach(a => {
+  const url = CONFIG[a.dataset.link];
+  if (url) { a.href = url; return; }
+  a.title = "Link not set yet. Add the URL in CONFIG in index.html.";
+  a.setAttribute("aria-disabled", "true");
+  a.style.opacity = ".6";
+  a.addEventListener("click", e => e.preventDefault());
+});
+
+/* Skills (from resume) */
+const icon = '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 9l-4 3 4 3M16 9l4 3-4 3M13.5 6l-3 12"/></svg>';
+const SKILLS = {
+  "Programming": ["Python","C","Shell Scripting"],
+  "Operating systems": ["Linux (Fedora)","Windows"],
+  "Containers": ["Docker","Docker Compose","Docker Hub","Multi-Stage Builds"],
+  "Kubernetes": ["Pods","Deployments","Services","ConfigMaps","Secrets","RBAC","Network Policies","Resource Limits","Pod Security","Ingress"],
+  "CI/CD": ["GitHub Actions","Jenkins","Jenkinsfile"],
+  "GitOps": ["Argo CD","Helm","Kustomize"],
+  "Observability": ["Prometheus","Grafana","Loki","Alertmanager","PromQL","kube-state-metrics","Node Exporter"],
+  "Infrastructure as code": ["Terraform","Ansible"],
+  "DevSecOps": ["Semgrep","Gitleaks","pip-audit","Trivy","Syft","Cosign","SLSA","Kyverno"],
+  "Cloud": ["AWS EC2","IAM","VPC","Amazon EKS concepts"],
+  "Networking": ["TCP/IP","DNS","HTTP","Linux Networking"]
+};
+document.getElementById("skillGrid").innerHTML = Object.entries(SKILLS).map(([k, v]) =>
+  `<div class="card skills-card"><h3>${icon}${k}</h3><ul class="tags">${v.map(t => `<li>${t}</li>`).join("")}</ul></div>`).join("");
+
+/* Certifications (from resume) */
+const medal = '<svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="9" r="5"/><path d="M8.5 13.5L7 21l5-3 5 3-1.500-7.500"/></svg>';
+const CERTS = [
+  ["AWS Cloud Practitioner Essentials","Amazon Web Services"],
+  ["Introduction to AWS IAM","Amazon Web Services"],
+  ["Introduction to Cloud","IBM SkillsBuild"],
+  ["Introduction to Cloud Security","Simplilearn"],
+  ["TATA Cybersecurity Analyst Job Simulation","Forage"],
+  ["Attendee: Datadog Summit Bengaluru 2026","Professional development"]
+];
+document.getElementById("certGrid").innerHTML = CERTS.map(([t, o]) =>
+  `<div class="card">${medal}<div><h3>${t}</h3><p>${o}</p></div></div>`).join("");
+
+/* Mobile menu */
+const burger = document.querySelector(".burger"), menu = document.getElementById("menu");
+const setMenu = open => { menu.classList.toggle("open", open); burger.setAttribute("aria-expanded", open); };
+burger.addEventListener("click", () => setMenu(!menu.classList.contains("open")));
+menu.querySelectorAll("a").forEach(a => a.addEventListener("click", () => setMenu(false)));
+document.addEventListener("keydown", e => { if (e.key === "Escape") setMenu(false); });
+
+/* Active nav link */
+const navLinks = [...menu.querySelectorAll("a")];
+const spy = new IntersectionObserver(es => es.forEach(e => {
+  if (e.isIntersecting) navLinks.forEach(l => l.classList.toggle("active", l.getAttribute("href") === "#" + e.target.id));
+}), { rootMargin: "-45% 0px -50% 0px" });
+document.querySelectorAll("main section[id]").forEach(s => spy.observe(s));
+
+/* Reveal sections on scroll (CSS disables this for reduced motion) */
+const rev = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { e.target.classList.add("in"); rev.unobserve(e.target); } }), { threshold: .08 });
+document.querySelectorAll(".reveal").forEach(el => rev.observe(el));
+
+/* Contact form: no backend. Builds a mailto: link for the visitor's own email app. */
+document.getElementById("contactForm").addEventListener("submit", e => {
+  e.preventDefault();
+  const f = e.target, msg = document.getElementById("formMsg");
+  if (!f.checkValidity()) { msg.textContent = "Please fill in your name, a valid email and a message."; return; }
+  const body = `${f.message.value}\n\nFrom: ${f.name.value} (${f.email.value})`;
+  location.href = `mailto:${EMAIL}?subject=${encodeURIComponent("Portfolio message from " + f.name.value)}&body=${encodeURIComponent(body)}`;
+  msg.textContent = "Your email app should open with the message ready. Nothing has been sent yet. If it doesn't open, email " + EMAIL + " directly.";
+});
+
+document.getElementById("year").textContent = new Date().getFullYear();
+</script>
+</body>
+</html>
